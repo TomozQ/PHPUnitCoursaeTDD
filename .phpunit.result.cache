@@ -1,1 +1,0 @@
-{"version":1,"defects":{"ArticleTest::testTitleIsEmptyByDefault":4,"ArticleTest::testSlugEmptyWithNoTitle":3,"ArticleTest::testSlugHasSpacesReplacedByUnderscores":3},"times":{"ArticleTest::testTitleIsEmptyByDefault":0.01,"ArticleTest::testSlugEmptyWithNoTitle":0.001,"ArticleTest::testSlugHasSpacesReplacedByUnderscores":0.001}}
