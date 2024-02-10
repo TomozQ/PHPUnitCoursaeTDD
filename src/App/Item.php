@@ -13,7 +13,7 @@ class Item
   /**
    * Get the description
    * 
-   * @return integer Arandom integer
+   * @return string Arandom integer
    */
   public function getDescription()
   {

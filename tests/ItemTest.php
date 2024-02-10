@@ -13,8 +13,15 @@ class ItemTest extends TestCase
 
   public function testIdisAnItenger()
   {
-    $item = new App\Item;
+    $item = new App\ItemChild;
 
     $this->assertIsInt($item->getId());
+  }
+
+  public function testTokenIsAString()
+  {
+    $item = new App\ItemChild;
+
+    $this->assertIsString($item->getToken());
   }
 }
