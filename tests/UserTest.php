@@ -10,6 +10,10 @@ class UserTest extends TestCase
     // $mailer = new App\Mailer;
     $mailer = $this->createMock(App\Mailer::class);
 
+    $mailer->expects($this->once())
+           ->method('send')
+           ->willReturn(true);
+
     $user->setMailer($mailer);
 
     $this->assertTrue($user->notify('Hello!'));

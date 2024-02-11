@@ -42,6 +42,6 @@ class User
    */
   public function notify(string $message)
   {
-    return $this->mailer::send($this->email, $message);
+    return $this->mailer->send($this->email, $message);
   }
 }
