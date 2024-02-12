@@ -42,7 +42,8 @@ class User
    */
   public function notify(string $message)
   {
+    return Mailer::send($this->email, $message);
     // return $this->mailer->send($this->email, $message);
-    return call_user_func($this->mailer_callable, $this->email, $message);
+    // return call_user_func($this->mailer_callable, $this->email, $message);
   }
 }

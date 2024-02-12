@@ -3,25 +3,22 @@
 use PHPUnit\Framework\TestCase;
 class UserTest extends TestCase
 {
-  public function testNotifyReturnsTrue()
+  public function tearDown(): void
   {
-    $user = new App\User('dev@example.com');
+    Mockery::close();
+  }
 
-    // $mailer = new App\Mailer;
-    // $mailer = $this->createMock(App\Mailer::class);
+  public function testNotifyReturnTrue()
+  {
+    $user = new App\User('dave@example.com');
 
-    // $mailer->expects($this->once())
-    //        ->method('send')
-    //        ->willReturn(true);
+    $mock = Mockery::mock('alias:Mailer');
 
-    // $user->setMailer($mailer);
-
-    $user->setMailerCallable(function() {
-      echo "mocked";
-
-      return true;
-    });
-
-    $this->assertTrue($user->notify('Hello!'));
+    $mock->shouldReceives('send')
+          ->once()
+          ->with($user->email, 'Hello')
+          ->andReturn(true);
+    
+    $this->assertTrue($user->notify('Hello'));
   }
 }
